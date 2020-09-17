@@ -103,7 +103,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
                 android:layout_weight="1"
-                android:text="BLOW OUT"
+                android:text="EXTINGUISH"
                 android:textSize="12sp" />
 
             <Button
