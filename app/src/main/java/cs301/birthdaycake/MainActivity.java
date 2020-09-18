@@ -4,6 +4,7 @@ import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -29,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
 
         SeekBar seekBar = findViewById(R.id.seekBar);
         seekBar.setOnSeekBarChangeListener(controller);
+
+        findObject.setOnTouchListener(controller);
+
     }
 
     public void goodbye(View button) {
