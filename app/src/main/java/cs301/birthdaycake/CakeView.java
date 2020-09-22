@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.drawable.shapes.OvalShape;
 import android.util.AttributeSet;
 import android.view.SurfaceView;
 
@@ -18,6 +19,8 @@ public class CakeView extends SurfaceView {
     Paint outerFlamePaint = new Paint();
     Paint innerFlamePaint = new Paint();
     Paint wickPaint = new Paint();
+    Paint balloon = new Paint();
+    Paint balloonString = new Paint();
 
     /* These constants define the dimensions of the cake.  While defining constants for things
         like this is good practice, we could be calculating these better by detecting
@@ -61,6 +64,8 @@ public class CakeView extends SurfaceView {
         innerFlamePaint.setStyle(Paint.Style.FILL);
         wickPaint.setColor(Color.BLACK);
         wickPaint.setStyle(Paint.Style.FILL);
+        balloon.setColor(Color.BLUE);
+        balloonString.setColor(Color.GRAY);
 
         setBackgroundColor(Color.WHITE);  //better than black default
 
@@ -93,6 +98,14 @@ public class CakeView extends SurfaceView {
             canvas.drawRect(wickLeft, wickTop, wickLeft + wickWidth, wickTop + wickHeight, wickPaint);
         }
     }
+
+    public void drawBalloon(Canvas canvas, float touchX, float touchY) {
+
+        canvas.drawOval(touchX-50, touchY+75 , touchX+50, touchY-75, balloon);
+        canvas.drawOval(touchX-5, touchY+75.50f , touchX+5, touchY+77.50f, balloon);
+        
+    }
+
 
     /**
      * onDraw is like "paint" in a regular Java program.  While a Canvas is
@@ -131,7 +144,11 @@ public class CakeView extends SurfaceView {
                 drawCandle(canvas, cakeLeft + cakeWidth *(i + 1) / (model.numCandle + 1) + candleWidth , cakeTop);
             }
         }
+         //Drawing balloon on touch
+         drawBalloon(canvas, model.coordX, model.coordY);
     }//onDraw
+
+
 
 }//class CakeView
 
