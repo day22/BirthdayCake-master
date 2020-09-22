@@ -100,10 +100,9 @@ public class CakeView extends SurfaceView {
     }
 
     public void drawBalloon(Canvas canvas, float touchX, float touchY) {
-
+        canvas.drawLine(touchX,touchY,touchX,touchY+160.0f, balloonString);
         canvas.drawOval(touchX-50, touchY+75 , touchX+50, touchY-75, balloon);
         canvas.drawOval(touchX-5, touchY+75.50f , touchX+5, touchY+77.50f, balloon);
-        
     }
 
 
