@@ -14,7 +14,7 @@ public class CakeModel {
         numCandle = 2;
         isFrosted = true;
         hasCandles = true;
-        coordX = -10;
-        coordY = -10;
+        coordX = 0;
+        coordY = 0;
     }
 }
